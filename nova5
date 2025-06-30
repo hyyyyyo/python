@@ -1,0 +1,9 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+genre_counts = revised_data["genres"].value_counts().head(10)
+sns.barplot(x=genre_counts.values, y=genre_counts.index)
+plt.title("장르별 콘텐츠 수 TOP 10")
+plt.xlabel("콘텐츠 수")
+plt.ylabel("장르")
+plt.show()
