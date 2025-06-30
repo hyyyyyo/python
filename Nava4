@@ -1,0 +1,10 @@
+import matplotlib.pyplot as plt
+
+year_counts = revised_data["release_year"].value_counts().sort_index()
+plt.figure(figsize=(10,5))
+plt.plot(year_counts.index, year_counts.values, marker='o')
+plt.title("연도별 콘텐츠 수 변화")
+plt.xlabel("출시 연도")
+plt.ylabel("콘텐츠 수")
+plt.grid(True)
+plt.show() is
