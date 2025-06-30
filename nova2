@@ -1,0 +1,16 @@
+import openai, os
+from dotenv import load_dotenv
+
+load_dotenv()  # .env에서 OPENAI_API_KEY 가져오기
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+def chat(prompt):
+    return openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": prompt}]
+    ).choices[0].message.content
+
+while True:
+    text = input("You: ")
+    if text.lower() in ("quit", "exit"): break
+    print("GPT:", chat(text))
